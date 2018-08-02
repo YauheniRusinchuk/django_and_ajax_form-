@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> TODO </title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  </head>
+  <body>
+    <h1> HOME </h1>
+    <hr />
+    <div class="div_todo">
+    {% for todo in todos %}
+        <p>{{todo.text}}</p>
+    {% endfor %}
+    </div>
+    <hr />
+    <form method="POST" class="form">
+      {% csrf_token %}
+      {{form}}
+      <button class='btn_form' type="submit">ДОБАВИТЬ</button>
+    </form>
+    <script src="{% static 'app/script/main.js' %}"></script>
+  </body>
+</html>
